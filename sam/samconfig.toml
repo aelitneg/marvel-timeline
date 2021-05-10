@@ -1,0 +1,11 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "marvel-timeline"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-13gxfz5qrib4z"
+s3_prefix = "marvel-timeline"
+region = "us-east-2"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+parameter_overrides = "AppBucketName=\"dev.agentile.marvel-timeline\""

@@ -1,0 +1,222 @@
+---
+openapi: 3.0.0
+info:
+    title: Marvel Timeline
+    description: Public API for the Marvel Timeline Service
+    version: 1.0.0
+servers:
+    - url: https://virtserver.swaggerhub.com/agentile19902/marvel-timeline/1.0.0
+      description: SwaggerHub API Auto Mocking
+paths:
+    /releases:
+        get:
+            responses:
+                '200':
+                    description: Listing of releases
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                    $ref: '#/components/schemas/Release'
+            x-amazon-apigateway-integration:
+                response:
+                    default:
+                        statusCode: 200
+                        responseParameters:
+                            method.response.header.Access-Control-Allow-Origin: "'*'"
+                uri:
+                    Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${releasesList.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                type: aws_proxy
+                default:
+                    description: Unexpected error
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+        options:
+            responses:
+                '200':
+                    description: 200 Response
+                    headers:
+                        Access-Control-Allow-Origin:
+                            style: simple
+                            explode: false
+                            schema:
+                                type: string
+                        Access-Control-Allow-Methods:
+                            style: simple
+                            explode: false
+                            schema:
+                                type: string
+                        Access-Control-Allow-Headers:
+                            style: simple
+                            explode: false
+                            schema:
+                                type: string
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Empty'
+            x-amazon-apigateway-integration:
+                responses:
+                    default:
+                        statusCode: 200
+                        responseParameters:
+                            method.response.header.Access-Control-Allow-Methods: "'DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT'"
+                            method.response.header.Access-Control-Allow-Headers: "'Content-Type,Authorization,X-Amz-Date,X-Api-Key,X-Amz-Security-Token'"
+                            method.response.header.Access-Control-Allow-Origin: "'*'"
+                passthroughBehavior: when_no_match
+                requestTemplates:
+                    application/json: '{"statusCode": 200}'
+                type: mock
+    /releases/{id}:
+        get:
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  style: simple
+                  explode: false
+                  schema:
+                      type: string
+            responses:
+                '200':
+                    description: Details of a single release
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Release'
+                default:
+                    description: Unexpected error
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+            x-amazon-apigateway-integration:
+                response:
+                    default:
+                        statusCode: 200
+                        responseParameters:
+                            method.response.header.Access-Control-Allow-Origin: "'*'"
+                uri:
+                    Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${releasesFind.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                type: aws_proxy
+        post:
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  style: simple
+                  explode: false
+                  schema:
+                      type: string
+            responses:
+                '200':
+                    description: Details of a single release
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Release'
+                default:
+                    description: Unexpected error
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Error'
+            x-amazon-apigateway-integration:
+                response:
+                    default:
+                        statusCode: 200
+                        responseParameters:
+                            method.response.header.Access-Control-Allow-Origin: "'*'"
+                uri:
+                    Fn::Sub: arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${releasesUpdate.Arn}/invocations
+                passthroughBehavior: when_no_match
+                httpMethod: POST
+                type: aws_proxy
+        options:
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  style: simple
+                  explode: false
+                  schema:
+                      type: string
+            responses:
+                '200':
+                    description: 200 Response
+                    headers:
+                        Access-Control-Allow-Origin:
+                            style: simple
+                            explode: false
+                            schema:
+                                type: string
+                        Access-Control-Allow-Methods:
+                            style: simple
+                            explode: false
+                            schema:
+                                type: string
+                        Access-Control-Allow-Headers:
+                            style: simple
+                            explode: false
+                            schema:
+                                type: string
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Empty'
+            x-amazon-apigateway-integration:
+                responses:
+                    default:
+                        statusCode: 200
+                        responseParameters:
+                            method.response.header.Access-Control-Allow-Methods: "'DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT'"
+                            method.response.header.Access-Control-Allow-Headers: "'Content-Type,Authorization,X-Amz-Date,X-Api-Key,X-Amz-Security-Token'"
+                            method.response.header.Access-Control-Allow-Origin: "'*'"
+                passthroughBehavior: when_no_match
+                requestTemplates:
+                    application/json: '{"statusCode": 200}'
+                type: mock
+components:
+    schemas:
+        Release:
+            required:
+                - id
+                - sortOrder
+                - title
+                - typeId
+            type: object
+            properties:
+                id:
+                    type: string
+                    format: uuid
+                title:
+                    type: string
+                typeId:
+                    type: integer
+                    format: int32
+                sortOrder:
+                    multipleOf: 10
+                    type: integer
+                    format: int32
+                completed:
+                    type: boolean
+        Error:
+            required:
+                - code
+                - message
+            type: object
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+        Empty:
+            type: object

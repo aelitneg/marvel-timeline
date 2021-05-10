@@ -1,0 +1,404 @@
+[
+  {
+    "id": "121b9d63-2057-45c3-97bd-34a1ed53054f",
+    "title": "Captain America: The First Avenger",
+    "typeId": 0,
+    "sortOrder": 10
+  },
+  {
+    "id": "f9947208-5be4-40d6-b1e4-4a9010feb47b",
+    "title": "Agent Carter (S1)",
+    "typeId": 1,
+    "sortOrder": 20
+  },
+  {
+    "id": "ad504aa5-7dac-43e9-b20e-e61a2b886574",
+    "title": "Agent Carter (S2)",
+    "typeId": 1,
+    "sortOrder": 30
+  },
+  {
+    "id": "c7dc6892-dc06-48b5-9d3b-62bc1dcc2508",
+    "title": "Captain Marvel",
+    "typeId": 0,
+    "sortOrder": 40
+  },
+  {
+    "id": "965c38bd-ac60-48b0-812a-56a1e01e6660",
+    "title": "Iron Man",
+    "typeId": 0,
+    "sortOrder": 50
+  },
+  {
+    "id": "e1e0a79d-cd2b-4c80-96c1-0f53f6448b20",
+    "title": "Iron Man 2",
+    "typeId": 0,
+    "sortOrder": 60
+  },
+  {
+    "id": "14ff3477-7171-49fe-872c-e269fda457dd",
+    "title": "The Incredible Hulk",
+    "typeId": 0,
+    "sortOrder": 70
+  },
+  {
+    "id": "04421004-bf9e-4daa-9840-77880216871c",
+    "title": "Thor",
+    "typeId": 0,
+    "sortOrder": 80
+  },
+  {
+    "id": "ca27bc7e-e77c-4254-b7f8-06deb4f2e493",
+    "title": "The Avengers",
+    "typeId": 0,
+    "sortOrder": 90
+  },
+  {
+    "id": "3229a70f-7112-4019-a08c-31a2ff97dac2",
+    "title": "Iron Man 3",
+    "typeId": 0,
+    "sortOrder": 100
+  },
+  {
+    "id": "cc08f6b9-136c-495c-92b2-acb95aec83be",
+    "title": "Agents of SHIELD (S1 E1-7)",
+    "typeId": 1,
+    "sortOrder": 110
+  },
+  {
+    "id": "d9cd69b9-7b83-46b1-bfe1-00e37b5b58c7",
+    "title": "Thor: The Dark World",
+    "typeId": 0,
+    "sortOrder": 120
+  },
+  {
+    "id": "3376a496-a355-403f-9d27-c161c8f15102",
+    "title": "Agents of SHIELD (S1 E8-16)",
+    "typeId": 1,
+    "sortOrder": 130
+  },
+  {
+    "id": "d76ad599-e0e7-4281-ac10-326fc7d72aa0",
+    "title": "Captain America: The Winter Soldier",
+    "typeId": 0,
+    "sortOrder": 140
+  },
+  {
+    "id": "82847ac1-01f8-497f-8d78-9449ede74633",
+    "title": "Agents of SHIELD (S1 E17-22)",
+    "typeId": 1,
+    "sortOrder": 150
+  },
+  {
+    "id": "2cd5f764-991e-4b69-acb7-725336f040f8",
+    "title": "Guardians of the Galaxy",
+    "typeId": 0,
+    "sortOrder": 160
+  },
+  {
+    "id": "991efa86-a785-4a8c-a739-8ca103d9b877",
+    "title": "Guardians of the Galaxy Vol 2",
+    "typeId": 0,
+    "sortOrder": 170
+  },
+  {
+    "id": "c223242a-d435-45c2-b8a8-86de4f6d371f",
+    "title": "Daredevil (S1)",
+    "typeId": 1,
+    "sortOrder": 180
+  },
+  {
+    "id": "b26e8de3-53f6-43a4-b6cd-97be11b94b60",
+    "title": "Agents of SHIELD (S2 E1-10)",
+    "typeId": 1,
+    "sortOrder": 190
+  },
+  {
+    "id": "c9b86f07-29fe-448b-815b-d606b054c8b0",
+    "title": "Jessica Jones (S1)",
+    "typeId": 1,
+    "sortOrder": 200
+  },
+  {
+    "id": "94095559-f49e-4bd1-bfba-87e56fc8818e",
+    "title": "Agents of SHIELD (S2 E11-19)",
+    "typeId": 1,
+    "sortOrder": 210
+  },
+  {
+    "id": "3fc70b9f-0bbb-440a-83dc-324f6d02ac73",
+    "title": "Avengers: Age of Ultron",
+    "typeId": 0,
+    "sortOrder": 220
+  },
+  {
+    "id": "df05eaea-599a-40b3-ae92-95097f515271",
+    "title": "Agents of SHIELD (S2 E20-22)",
+    "typeId": 1,
+    "sortOrder": 230
+  },
+  {
+    "id": "2fc46f90-e1ee-4420-b033-2d9b8a4e3a77",
+    "title": "Daredevil (S2 E1-4)",
+    "typeId": 1,
+    "sortOrder": 240
+  },
+  {
+    "id": "ba8aa03e-43eb-49e1-a135-7bb1b075957a",
+    "title": "Luke Cage (S1 E1-4)",
+    "typeId": 1,
+    "sortOrder": 250
+  },
+  {
+    "id": "9e67607c-1ac0-41c2-a4e9-74102c4e8f47",
+    "title": "Daredevil (S2 E5-11)",
+    "typeId": 1,
+    "sortOrder": 260
+  },
+  {
+    "id": "4bdf693f-e87f-4682-82f4-4da0a3b1846b",
+    "title": "Luke Cage (S1 E5-8)",
+    "typeId": 1,
+    "sortOrder": 270
+  },
+  {
+    "id": "0e96f0c1-f8c8-4fdb-afd4-f15bb5d83789",
+    "title": "Daredevil (S2 E12-13)",
+    "typeId": 1,
+    "sortOrder": 280
+  },
+  {
+    "id": "9cf4971f-15dc-4f36-837a-1c9842712b97",
+    "title": "Luke Cage(S E9-13)",
+    "typeId": 1,
+    "sortOrder": 290
+  },
+  {
+    "id": "0af8b6d1-052a-4073-8faf-5f42ce11ab62",
+    "title": "Ant-Man",
+    "typeId": 0,
+    "sortOrder": 300
+  },
+  {
+    "id": "eed98094-0781-40b0-b1e2-017712944d79",
+    "title": "Agents of SHIELD (S3 E1-19)",
+    "typeId": 1,
+    "sortOrder": 310
+  },
+  {
+    "id": "368bb6bd-15c3-4993-b875-814c23cc53c6",
+    "title": "Iron Fist (S1)",
+    "typeId": 1,
+    "sortOrder": 320
+  },
+  {
+    "id": "dcdf10ad-7542-4811-8c07-ac721ffa226b",
+    "title": "Captain America: Civil War",
+    "typeId": 0,
+    "sortOrder": 330
+  },
+  {
+    "id": "34fc56b4-7223-4c56-b17c-998f988308cc",
+    "title": "Agents of SHIELD (S3 E20-22)",
+    "typeId": 1,
+    "sortOrder": 340
+  },
+  {
+    "id": "45b277e4-f1f3-4d93-ba98-c22eb6b742f5",
+    "title": "The Defenders (S1)",
+    "typeId": 1,
+    "sortOrder": 350
+  },
+  {
+    "id": "6e5c7c18-105e-452f-a289-325512cfb2a4",
+    "title": "Agents of SHIELD (S4 E1-6)",
+    "typeId": 1,
+    "sortOrder": 360
+  },
+  {
+    "id": "21354089-375f-4c3a-b7eb-f5c240940565",
+    "title": "Doctor Strange",
+    "typeId": 0,
+    "sortOrder": 370
+  },
+  {
+    "id": "29133e97-4001-4ab9-b458-53ba9936c842",
+    "title": "Black Panther",
+    "typeId": 0,
+    "sortOrder": 380
+  },
+  {
+    "id": "55a52ee6-d4eb-4ded-8247-35273d04546e",
+    "title": "Agents of SHIELD (S4 E7-8)",
+    "typeId": 1,
+    "sortOrder": 390
+  },
+  {
+    "id": "63a335d2-5c2b-4380-bbb2-01527575c05b",
+    "title": "Agents of SHIELD: Slingshot (S1 E1-6)",
+    "typeId": 1,
+    "sortOrder": 400
+  },
+  {
+    "id": "cd99c716-fb4e-497b-ba61-244595204b6c",
+    "title": "Agents of SHIELD (S4 E9-22)",
+    "typeId": 1,
+    "sortOrder": 410
+  },
+  {
+    "id": "630b6610-40b8-4230-9d2b-2b0e309e686a",
+    "title": "Spiderman: Homecoming",
+    "typeId": 0,
+    "sortOrder": 420
+  },
+  {
+    "id": "1cd4832d-dcf5-4ffe-808e-0d0568088f7b",
+    "title": "Thor: Ragnarok",
+    "typeId": 0,
+    "sortOrder": 430
+  },
+  {
+    "id": "6d5f3e6f-b736-4896-adca-17713b5030cd",
+    "title": "Inhumans (S1)",
+    "typeId": 1,
+    "sortOrder": 440
+  },
+  {
+    "id": "20534c88-7e69-464d-80e4-bf79415fa49e",
+    "title": "The Punisher (S1)",
+    "typeId": 1,
+    "sortOrder": 450
+  },
+  {
+    "id": "02e8da87-d75a-484f-b38f-c0d41705544e",
+    "title": "Runaways (S1)",
+    "typeId": 1,
+    "sortOrder": 460
+  },
+  {
+    "id": "afea8eb7-76c6-479d-bde5-e1483daee5b1",
+    "title": "Agents of SHIELD (S5 E1-10)",
+    "typeId": 1,
+    "sortOrder": 470
+  },
+  {
+    "id": "241ff18b-6562-4c87-a6d8-cf91462948c4",
+    "title": "Jessica Jones (S2)",
+    "typeId": 1,
+    "sortOrder": 480
+  },
+  {
+    "id": "a1a4d9fc-c385-472e-8bcd-4f9529d51ee1",
+    "title": "Agents of SHIELD (S5 E11-18)",
+    "typeId": 1,
+    "sortOrder": 490
+  },
+  {
+    "id": "2edb05c5-9d43-41d4-8e74-a9210339a224",
+    "title": "Cloak & Dagger (S1)",
+    "typeId": 1,
+    "sortOrder": 500
+  },
+  {
+    "id": "c7bb93c8-1a7c-44d0-8ab5-a3602cd3288c",
+    "title": "Cloak & Dagger (S2)",
+    "typeId": 1,
+    "sortOrder": 510
+  },
+  {
+    "id": "7eeb6ee3-0f98-4819-b9b0-e2561c49dfa0",
+    "title": "Luke Cage (S2)",
+    "typeId": 1,
+    "sortOrder": 520
+  },
+  {
+    "id": "bd1b62e6-39a1-4d92-a424-5c253f42b14e",
+    "title": "Iron Fist (S2)",
+    "typeId": 1,
+    "sortOrder": 530
+  },
+  {
+    "id": "db766fd1-d281-43b3-a28e-82fd891ff2f2",
+    "title": "Daredevil (S3)",
+    "typeId": 1,
+    "sortOrder": 540
+  },
+  {
+    "id": "c901d3f9-34b3-413d-82f8-5f74f43f5c06",
+    "title": "Runaways (S2)",
+    "typeId": 1,
+    "sortOrder": 550
+  },
+  {
+    "id": "3a015bcb-8a8a-45d2-b637-1b14079f7115",
+    "title": "The Punisher (S2)",
+    "typeId": 1,
+    "sortOrder": 560
+  },
+  {
+    "id": "6406c8a6-b920-4b8d-8e9b-aeb2b36f9f80",
+    "title": "Jessica Jones (S3)",
+    "typeId": 1,
+    "sortOrder": 570
+  },
+  {
+    "id": "1fc9a9a6-929c-4b55-8e46-5e0e7c1faca9",
+    "title": "Ant-Man and the Wasp",
+    "typeId": 0,
+    "sortOrder": 580
+  },
+  {
+    "id": "f37dbbd5-e21d-48d0-820a-b9257390e855",
+    "title": "Avengers: Infinity War",
+    "typeId": 0,
+    "sortOrder": 590
+  },
+  {
+    "id": "ea1272c8-17f8-4c18-9c10-5313b41459b2",
+    "title": "Agents of SHIELD (S5 E19-22)",
+    "typeId": 1,
+    "sortOrder": 600
+  },
+  {
+    "id": "c23d4d74-5ea3-4e6f-a050-740c7379ab6e",
+    "title": "Agents of SHIELD (S6)",
+    "typeId": 1,
+    "sortOrder": 610
+  },
+  {
+    "id": "f9a4bb01-fd21-4109-bb06-e575cc327802",
+    "title": "Agents of SHIELD (S7)",
+    "typeId": 1,
+    "sortOrder": 620
+  },
+  {
+    "id": "97f5c2e2-9e33-452d-b3b9-6d149b792cda",
+    "title": "Runaways (S3)",
+    "typeId": 1,
+    "sortOrder": 630
+  },
+  {
+    "id": "a236c899-1f51-42e5-abf7-b32cdaa4ab78",
+    "title": "Avengers: End Game",
+    "typeId": 0,
+    "sortOrder": 640
+  },
+  {
+    "id": "55ad89dc-fa11-457d-9bac-02cd65079c74",
+    "title": "WandaVision",
+    "typeId": 0,
+    "sortOrder": 650
+  },
+  {
+    "id": "d99bb813-3bd2-424e-a48d-394880f58f4a",
+    "title": "The Falcon and the Winter Soldier",
+    "typeId": 0,
+    "sortOrder": 660
+  },
+  {
+    "id": "b94cb70f-ca8e-4aaa-a0b4-2ee6632ec3fc",
+    "title": "Spiderman: Far From Home",
+    "typeId": 0,
+    "sortOrder": 670
+  }
+]

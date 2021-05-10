@@ -1,0 +1,189 @@
+# This is the SAM template that represents the architecture of your serverless application
+# https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-template-basics.html
+
+# The AWSTemplateFormatVersion identifies the capabilities of the template
+# https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/format-version-structure.html
+AWSTemplateFormatVersion: 2010-09-09
+Description: >-
+    marvel-timeline
+
+# Transform section specifies one or more macros that AWS CloudFormation uses to process your template
+# https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/transform-section-structure.html
+Transform:
+    - AWS::Serverless-2016-10-31
+
+Parameters:
+    AppBucketName:
+        Type: String
+        Description: 'REQUIRED: Unique S3 bucket name to use for the app.'
+
+# Resources declares the AWS resources that you want to include in the stack
+# https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resources-section-structure.html
+Resources:
+    marvelTimelineApi:
+        Type: AWS::Serverless::Api
+        Properties:
+            DefinitionBody:
+                'Fn::Transform':
+                    Name: 'AWS::Include'
+                    Parameters:
+                        Location:
+                            !Join [
+                                '',
+                                [
+                                    's3://',
+                                    'dev.agentile.open-api',
+                                    '/marvel-timeline-api.yaml',
+                                ],
+                            ]
+            StageName: Prod
+
+    releasesList:
+        Type: AWS::Serverless::Function
+        Properties:
+            Handler: src/handlers/releases-list.handler
+            Runtime: nodejs14.x
+            MemorySize: 128
+            Timeout: 100
+            Description: Get a list of all Releases.
+            Policies:
+                # Give Read Permissions to the Releases
+                - DynamoDBReadPolicy:
+                      TableName: !Ref ReleasesTable
+            Environment:
+                Variables:
+                    # Make table name accessible as environment variable from function code during execution
+                    RELEASES_TABLE: !Ref ReleasesTable
+            Events:
+                Api:
+                    Type: Api
+                    Properties:
+                        Path: /releases
+                        Method: GET
+                        RestApiId:
+                            Ref: marvelTimelineApi
+
+    releasesFind:
+        Type: AWS::Serverless::Function
+        Properties:
+            Handler: src/handlers/releases-find.handler
+            Runtime: nodejs14.x
+            MemorySize: 128
+            Timeout: 100
+            Description: Get a single Release.
+            Policies:
+                # Give Read Permissions to the Releases
+                - DynamoDBReadPolicy:
+                      TableName: !Ref ReleasesTable
+            Environment:
+                Variables:
+                    # Make table name accessible as environment variable from function code during execution
+                    RELEASES_TABLE: !Ref ReleasesTable
+            Events:
+                Api:
+                    Type: Api
+                    Properties:
+                        Path: /releases/{id}
+                        Method: GET
+                        RestApiId:
+                            Ref: marvelTimelineApi
+
+    releasesUpdate:
+        Type: AWS::Serverless::Function
+        Properties:
+            Handler: src/handlers/releases-update.handler
+            Runtime: nodejs14.x
+            MemorySize: 128
+            Timeout: 100
+            Description: Update an existing Release.
+            Policies:
+                # Give Create/Read/Update/Delete Permissions to the Releases
+                - DynamoDBCrudPolicy:
+                      TableName: !Ref ReleasesTable
+                # Give Read Permissions to Users
+                - DynamoDBReadPolicy:
+                      TableName: !Ref UsersTable
+            Environment:
+                Variables:
+                    # Make table name accessible as environment variable from function code during execution
+                    RELEASES_TABLE: !Ref ReleasesTable
+                    USERS_TABLE: !Ref UsersTable
+            Events:
+                Api:
+                    Type: Api
+                    Properties:
+                        Path: /releases
+                        Method: POST
+                        RestApiId:
+                            Ref: marvelTimelineApi
+
+    releasesImport:
+        Type: AWS::Serverless::Function
+        Properties:
+            Handler: src/handlers/releases-import.handler
+            Runtime: nodejs14.x
+            MemorySize: 128
+            Timeout: 100
+            Description: Import data into the Releases table.
+            Policies:
+                - # Give Create/Read/Update/Delete Permissions to the Releases
+                  DynamoDBCrudPolicy:
+                      TableName: !Ref ReleasesTable
+                - # Give Read Access to the AppBucket
+                  S3ReadPolicy:
+                      BucketName: !Ref AppBucketName
+            Events:
+                S3NewObjectEvent:
+                    Type: S3
+                    Properties:
+                        Bucket: !Ref AppBucket
+                        Events: s3:ObjectCreated:*
+                        Filter:
+                            S3Key:
+                                Rules:
+                                    - Name: suffix
+                                      Value: '.json'
+            Environment:
+                Variables:
+                    # Make table name accessible as environment variable from function code during execution
+                    RELEASES_TABLE: !Ref ReleasesTable
+
+    # DynamoDB table to store Releases
+    ReleasesTable:
+        Type: AWS::DynamoDB::Table
+        Properties:
+            TableName: marvel-timeline-releases
+            AttributeDefinitions:
+                - AttributeName: id
+                  AttributeType: S
+            KeySchema:
+                - AttributeName: id
+                  KeyType: HASH
+            ProvisionedThroughput:
+                ReadCapacityUnits: 2
+                WriteCapacityUnits: 2
+
+    # DynamoDB table to store users
+    UsersTable:
+        Type: AWS::DynamoDB::Table
+        Properties:
+            TableName: marvel-timeline-users
+            AttributeDefinitions:
+                - AttributeName: id
+                  AttributeType: S
+            KeySchema:
+                - AttributeName: id
+                  KeyType: HASH
+            ProvisionedThroughput:
+                ReadCapacityUnits: 2
+                WriteCapacityUnits: 2
+
+    AppBucket:
+        Type: AWS::S3::Bucket
+        Properties:
+            BucketName: !Ref AppBucketName
+
+Outputs:
+    WebEndpoint:
+        Description: 'API Gateway endpoint URL for Prod stage'
+        Value: !Sub 'https://${marvelTimelineApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/'
